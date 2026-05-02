@@ -16,3 +16,19 @@ create table Branch (
   phoneNumber varchar(20)
 );
 
+-- Creating transaction type enum before adding the transactionType table which uses this datatype --
+create type transaction_types as enum (
+  'deposit',
+  'withdrawl',
+  'transfer',
+  'payment',
+  'fee',
+  'interest',
+  'refund'
+);
+--------------------------------------------------------------------------------------------------
+create table transactionType (
+  typeId int primary key,
+  typeName transaction_types
+);
+
