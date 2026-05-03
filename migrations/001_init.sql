@@ -67,4 +67,21 @@ create table employee (
     foreign key (branchid) references branch(branchid)
 );
 
+create table banktransaction (
+  transactionid int primary key,
+  accountid int not null,
+  typeid int not null,
+  amount decimal not null,
+  description varchar(300),
+  transactiondate timestamp not null,
+  constraint fk_transaction_account
+    foreign key (accountid) references account(accountid),
+  constraint fk_transaction_type
+    foreign key (typeid) references transactiontype(typeid),
+  constraint check_transaction_amount_is_positive
+    check (amount > 0)
+);
+
+
+
 
