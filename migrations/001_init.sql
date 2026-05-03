@@ -1,4 +1,4 @@
--- enums (We only have one, for transactionType)
+---------------- Enums (We only have one, for transactionType) -----------------------
 create type transaction_type as enum (
   'deposit',
   'withdrawal',
@@ -92,7 +92,8 @@ create table customerbranch (
     foreign key (branchid) references branch(branchid)
 );
 
--- Indexes --
+--------------------------------- Indexes --------------------------------------
+
 -- indexes are just a data structure which helps make lookup times faster. It will use the index to jump to the value it's looking for instead of going through all previous values
 
 -- good to create an index on customerId because it is a foreign key, and will probably be used often in lookups like customerId = 4
