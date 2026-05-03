@@ -19,7 +19,8 @@ values
   (1, 'Lebron James', 'lebron.@email.com', '123-345-7890', '123 Main St, Springfield', '2026-05-01'),
   (2, 'Theo Von', 'Theo.@email.com', '123-345-7890', '456 Oak Ave, Springfield', '2026-05-01'),
   (3, 'Derrick Rose', 'dRose.@email.com', '123-345-7890', '789 Main St, Riverton', '2026-05-02'),
-  (4, 'Tyler Blevins', 'tyler@email.com', '123-345-7890', '123 Cedar Ln, Riverton', '2026-05-02');
+  (4, 'Tyler Blevins', 'tyler@email.com', '123-345-7890', '123 Cedar Ln, Riverton', '2026-05-02'),
+  (5, 'Dave Grohl', 'ff@email.com', '123-345-7253', '123 Hollywood Blv, Gravity Falls', '2026-13-01');
 
 ------------------------------- Data for branch -------------------------------
 insert into branch (branchid, branchname, location, phonenumber)
@@ -28,6 +29,7 @@ values
   (2, 'south b', '200 market ave, riverton', '555-900-2000'),
   (3, 'east b', '300 elm st, springfield', '555-900-3000'),
   (4, 'west b', '400 lake rd, riverton', '555-900-4000');
+  (5, 'midwest b', '200 brisket st, greenvile', '432-234-2344');
 
 ------------------------------- Data for transaction type -------------------------------
 insert into transactiontype (typeid, typename)
@@ -49,7 +51,7 @@ values
 insert into account (accountid, customerid, accounttype, balance, dateopened, status)
 values
   (101, 1, 'checking', 2400.00, '2026-05-01', 'active'),
-  (102, 1, 'savings', 8000.00, '2026-05-02', 'active'),
+  (102, 5, 'savings', 8000.00, '2026-05-02', 'active'),
   (103, 2, 'savings', 2300.00, '2026-05-02', 'active'),
   (104, 3, 'savings', 10000.00, '2026-05-03', 'active'),
   (105, 4, 'checking', 10.00, '2026-05-03', 'suspended');
@@ -72,7 +74,7 @@ values
 insert into customerbranch (customerid, branchid)
 values
   (1, 1),
-  (1, 2),
+  (1, 5),
   (2, 1),
   (3, 3),
   (4, 2),
