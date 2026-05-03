@@ -82,6 +82,7 @@ create table bankTransaction (
     check (amount > 0)
 );
 
+ -- Our junction table between customers and branch, which makes a junction table that passes the criteria of a M:N relationship between customer and branch
 create table customerbranch (
   customerid int not null,
   branchid int not null,

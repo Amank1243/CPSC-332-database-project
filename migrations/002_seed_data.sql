@@ -43,7 +43,7 @@ values
 
 ------------------------------- Data for account -------------------------------
 
--- Some notes: Accountid must be unique as specified by the constraint 'unique' in our table
+-- Some notes: Accountid must be unique as specified by it being a primary key.
 --  account.customerId depends on customer.customerid, hence why the data is inserted after
 -- 
 insert into account (accountid, customerid, accounttype, balance, dateopened, status)
@@ -66,4 +66,29 @@ values
   (204, 4, 'Saul Goodman', 'bank teller', 'b4stLowyah.@bank.com', '555-800-3001', '2024-04-05'),
   (205, 4, 'Jimmy McGill', 'assistant manager', 'slippinJimmy.@bank.com', '555-800-4001', '2024-05-12');
 
+
+------------------------------- Data for customerbranch (junction table) -------------------------------
+-- Notice all values exist already in customer.customerid and branch.branchid. Any data which does not exist already will fail due to the foreign key constraint
+insert into customerbranch (customerid, branchid)
+values
+  (1, 1),
+  (1, 2),
+  (2, 1),
+  (3, 3),
+  (4, 2),
+  (4, 4);
+
+------------------------------- Data for bank transaction -------------------------------
+-- The data for bank transaction is last because it depends on account and transactiontype
+-- type id refers to the transaction type table, which has all possible transaction types listed from 1-7
+-- account id refers to account.accountid, and must match said ids
+  insert into banktransaction (transactionid, accountid, typeid, amount, description, transactiondate)
+values
+  (301, 101, 1, 500.00, 'cash deposit', '2026-05-01'),
+  (302, 101, 2, 100.00, 'atm cash withdrawal', '2026-05-02'),
+  (303, 102, 4, 25.00, 'income tax payment', '2026-05-03'),
+  (304, 103, 4, 75.00, 'rent payment', '2026-05-03'),
+  (305, 104, 1, 1000.00, 'paycheck deposit', '2026-05-04'),
+  (306, 105, 5, 15.00, 'maintenance fee', '2026-05-04'),
+  (307, 101, 4, 200.00, 'rent payment', '2026-05-05');
   
