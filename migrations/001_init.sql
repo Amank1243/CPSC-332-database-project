@@ -55,6 +55,16 @@ create table Account (
     check (status in ('active', 'closed', 'suspended'))
 );
 
-
+create table employee (
+  employeeid int primary key,
+  branchid int not null,
+  fullname varchar(100) not null,
+  jobtitle varchar(50) not null,
+  email varchar(255) not null unique,
+  phonenumber varchar(20) not null,
+  hiredate date not null,
+  constraint fk_employee_branch -- foreign key constraint
+    foreign key (branchid) references branch(branchid)
+);
 
 
