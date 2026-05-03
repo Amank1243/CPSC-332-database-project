@@ -82,6 +82,15 @@ create table banktransaction (
     check (amount > 0)
 );
 
+create table customerbranch (
+  customerid int not null,
+  branchid int not null,
+  primary key (customerid, branchid), --This creates a composite key, which is just the pairing of two columns to make a primary key
+  constraint fk_customerbranch_customer
+    foreign key (customerid) references customer(customerid),
+  constraint fk_customerbranch_branch
+    foreign key (branchid) references branch(branchid)
+);
 
 
 
