@@ -1,3 +1,15 @@
+-- enums (We only have one, for transactionType)
+create type transactionType as enum (
+  'deposit',
+  'withdrawal',
+  'transfer',
+  'payment',
+  'fee',
+  'interest',
+  'refund'
+);
+
+
 ------------- Queries for creating tables -------------------------
 
 create table Customer (
@@ -16,23 +28,12 @@ create table Branch (
   phoneNumber varchar(20)
 );
 
--- Creating transaction type enum before adding the transactionType table which uses this datatype --
-create type transaction_types as enum (
-  'deposit',
-  'withdrawl',
-  'transfer',
-  'payment',
-  'fee',
-  'interest',
-  'refund'
-);
---------------------------------------------------------------------------------------------------
-create table transactionType (
+create table TransactionType (
   typeId int primary key,
   typeName transaction_types
 );
 
-create table account (
+create table Account (
   accountId int primary key,
   customerId int,
   accountType varchar(50),
@@ -44,3 +45,5 @@ create table account (
 -- without this, an employee can potentially input data where the customer id in the customer table does not exist when inputting data into the account table, meaning the customer does not exist rendering the data pointless and false
   foreign key (customerId) references Customer(customerid)
 )
+
+
