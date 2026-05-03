@@ -20,7 +20,7 @@ values
   (2, 'Theo Von', 'Theo.@email.com', '123-345-7890', '456 Oak Ave, Springfield', '2026-05-01'),
   (3, 'Derrick Rose', 'dRose.@email.com', '123-345-7890', '789 Main St, Riverton', '2026-05-02'),
   (4, 'Tyler Blevins', 'tyler@email.com', '123-345-7890', '123 Cedar Ln, Riverton', '2026-05-02'),
-  (5, 'Dave Grohl', 'ff@email.com', '123-345-7253', '123 Hollywood Blv, Gravity Falls', '2026-13-01');
+  (5, 'Dave Grohl', 'ff@email.com', '123-345-7253', '123 Hollywood Blv, Gravity Falls', '2026-11-01');
 
 ------------------------------- Data for branch -------------------------------
 insert into branch (branchid, branchname, location, phonenumber)
@@ -28,7 +28,7 @@ values
   (1, 'north b', '100 bank st, springfield', '555-900-1000'),
   (2, 'south b', '200 market ave, riverton', '555-900-2000'),
   (3, 'east b', '300 elm st, springfield', '555-900-3000'),
-  (4, 'west b', '400 lake rd, riverton', '555-900-4000');
+  (4, 'west b', '400 lake rd, riverton', '555-900-4000'),
   (5, 'midwest b', '200 brisket st, greenvile', '432-234-2344');
 
 ------------------------------- Data for transaction type -------------------------------
