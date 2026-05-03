@@ -11,6 +11,8 @@
 
 -- The order which you insert the data also matters, because some branches depend (reference) others
 
+-- Data is viewed in the table editor in supabase
+
 ------------------------------- Data for customers -------------------------------
 insert into customer (customerid, fullname, email, phonenumber, address, datecreated)
 values
@@ -51,5 +53,17 @@ values
   (103, 2, 'savings', 2300.00, '2026-05-02', 'active'),
   (104, 3, 'savings', 10000.00, '2026-05-03', 'active'),
   (105, 4, 'checking', 10.00, '2026-05-03', 'suspended');
+
+  
+------------------------------- Data for employee -------------------------------
+
+-- Note that the employee id's are unique and the branch id's already exist in the branch data created above
+insert into employee (employeeid, branchid, fullname, jobtitle, email, phonenumber, hiredate)
+values
+  (201, 1, 'Tony Soprano', 'branch manager', 'tony.sop@bank.com', '555-800-1001', '2024-01-15'),
+  (202, 2, 'Jennifer Melfi', 'bank teller', 'jenny.@bank.com', '555-800-1002', '2024-03-10'),
+  (203, 3, 'Carmela Soprano', 'loan officer', 'carmela.@bank.com', '555-800-2001', '2024-02-20'),
+  (204, 4, 'Saul Goodman', 'bank teller', 'b4stLowyah.@bank.com', '555-800-3001', '2024-04-05'),
+  (205, 4, 'Jimmy McGill', 'assistant manager', 'slippinJimmy.@bank.com', '555-800-4001', '2024-05-12');
 
   
