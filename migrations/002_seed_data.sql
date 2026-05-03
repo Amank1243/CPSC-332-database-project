@@ -66,7 +66,7 @@ values
   (202, 2, 'Jennifer Melfi', 'bank teller', 'jenny.@bank.com', '555-800-1002', '2024-03-10'),
   (203, 3, 'Carmela Soprano', 'loan officer', 'carmela.@bank.com', '555-800-2001', '2024-02-20'),
   (204, 4, 'Saul Goodman', 'bank teller', 'b4stLowyah.@bank.com', '555-800-3001', '2024-04-05'),
-  (205, 4, 'Jimmy McGill', 'assistant manager', 'slippinJimmy.@bank.com', '555-800-4001', '2024-05-12');
+  (205, 5, 'Jimmy McGill', 'assistant manager', 'slippinJimmy.@bank.com', '555-800-4001', '2024-05-12');
 
 
 ------------------------------- Data for customerbranch (junction table) -------------------------------
