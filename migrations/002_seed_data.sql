@@ -50,11 +50,11 @@ values
 -- 
 insert into account (accountid, customerid, accounttype, balance, dateopened, status)
 values
-  (101, 1, 'checking', 2400.00, '2026-05-01', 'active'),
-  (102, 5, 'savings', 8000.00, '2026-05-02', 'active'),
-  (103, 2, 'savings', 2300.00, '2026-05-02', 'active'),
-  (104, 3, 'savings', 10000.00, '2026-05-03', 'active'),
-  (105, 4, 'checking', 10.00, '2026-05-03', 'suspended');
+  (101, 1, 'checking', 600.00, '2026-05-01', 'active'),
+  (102, 5, 'savings', -25.00, '2026-05-02', 'active'),
+  (103, 2, 'savings', -75.00, '2026-05-02', 'active'),
+  (104, 3, 'savings', 1000.00, '2026-05-03', 'active'),
+  (105, 4, 'checking', -15.00, '2026-05-03', 'suspended');
 
   
 ------------------------------- Data for employee -------------------------------
@@ -87,10 +87,10 @@ values
   insert into banktransaction (transactionid, accountid, typeid, amount, description, transactiondate)
 values
   (301, 101, 1, 500.00, 'cash deposit', '2026-05-01'),
-  (302, 101, 2, 100.00, 'atm cash withdrawal', '2026-05-02'),
-  (303, 102, 4, 25.00, 'income tax payment', '2026-05-03'),
-  (304, 103, 4, 75.00, 'rent payment', '2026-05-03'),
+  (302, 101, 2, -100.00, 'atm cash withdrawal', '2026-05-02'),
+  (303, 102, 4, -25.00, 'income tax payment', '2026-05-03'),
+  (304, 103, 4, -75.00, 'rent payment', '2026-05-03'),
   (305, 104, 1, 1000.00, 'paycheck deposit', '2026-05-04'),
-  (306, 105, 5, 15.00, 'maintenance fee', '2026-05-04'),
-  (307, 101, 4, 200.00, 'rent payment', '2026-05-05');
+  (306, 105, 5, -15.00, 'maintenance fee', '2026-05-04'),
+  (307, 101, 7, 200.00, 'spotify refund', '2026-05-05');
   

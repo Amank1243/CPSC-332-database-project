@@ -1,12 +1,12 @@
 ---------------- Enums (We only have one, for transactionType) -----------------------
 create type transaction_type as enum (
-  'deposit',
-  'withdrawal',
-  'transfer',
-  'payment',
-  'fee',
-  'interest',
-  'refund'
+  'deposit', -- Positive
+  'withdrawal', -- Negative
+  'transfer', -- (transferring away) Negative
+  'payment', -- Negative
+  'fee', -- Negative
+  'interest', -- Positive
+  'refund' -- Positive
 );
 
 -- notes
@@ -48,9 +48,7 @@ create table account (
 -- without this, an employee can potentially input data where the customer id in the customer table does not exist when inputting data into the account table, meaning the customer does not exist rendering the data pointless and false
   -- The constraint for the foreign key is called a foreign key restraint. It enforces data integrity by making sure nothing will cause the tables to break with the linkage caused by the foreign key
   constraint fk_account_customer
-    foreign key (customerId) references Customer(customerid)
-  constraint check_balance_is_not_negative
-    check (balance >= 0), -- check is used to limit values which can be placed in columns
+    foreign key (customerId) references Customer(customerid),
   constraint check_account_status
     check (status in ('active', 'closed', 'suspended'))
 );
@@ -78,8 +76,8 @@ create table bankTransaction (
     foreign key (accountid) references account(accountid),
   constraint fk_transaction_type
     foreign key (typeid) references transactiontype(typeid),
-  constraint check_transaction_amount_is_positive
-    check (amount > 0)
+  constraint check_transaction_amount_is_not_zero
+    check (amount <> 0) -- check that amount isn't zero
 );
 
  -- Our junction table between customers and branch, which makes a junction table that passes the criteria of a M:N relationship between customer and branch
