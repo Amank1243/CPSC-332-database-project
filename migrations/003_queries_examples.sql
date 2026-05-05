@@ -14,6 +14,12 @@
 
 -------------------------------------- Views -----------------------------------------------
 
+-- Creates a view that shows customers with their account information.
+create or replace view customer_account_summary as
+select c.customerid, c.fullname, c.email, a.accountid, a.accounttype, a.balance, a.status
+from customer c
+inner join account a on c.customerid = a.customerid;
+
 -------------------------------------- Reads -----------------------------------------------
 
 -- Calculates the balance of accounts. Shows the full name, customerid, and balance
