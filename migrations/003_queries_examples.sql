@@ -66,4 +66,15 @@ when bt.typeid in (1, 6, 7) and (bt.amount < 0) then bt.amount * -1
 when bt.typeid in (2,3,4,5) and (bt.amount > 0) then bt.amount * -1
 else bt.amount
 end; 
+
+-- Updates a customer's phone number.
+update customer
+set phonenumber = '555-111-2222'
+where customerid = 1;
+
+-- Updates one account status to suspended.
+update account
+set status = 'suspended'
+where accountid = 103;
+
 -- Deletes
