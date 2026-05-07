@@ -18,8 +18,13 @@ create or replace function update_account_balance()
 returns trigger as $$
 begin
   update account
-  set balance = balance + new.amount
-  where accountid = new.accountid;
+  set balance = (
+    select coalesce(sum(bt.amount), 0)  -- We are adding the amounts from each bank transaction all up, and using coalesce to avoid getting null. We will get 0 instead if given
+    from banktransaction bt
+    where bt.accountid = new.accountid
+  )
+
+  where account.accountid = new.accountid;
   return new;
 end;
 $$ language plpgsql;
@@ -28,6 +33,7 @@ create trigger trg_update_balance
 after insert on bankTransaction
 for each row
 execute function update_account_balance();
+-- Some limitations of the trigger is that it only works on inserts. It would've been cool to include a working balance which works on updates and deletes
 
 -------------------------------------- Views -----------------------------------------------
 
