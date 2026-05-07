@@ -31,7 +31,7 @@ create table branch (
   phoneNumber varchar(20) not null
 );
 
-create table transactionType (
+create table transactiontype (
   typeId int primary key,
   typeName transaction_type not null unique -- We want transaction_type to be unique because the transactionType table is meant to be a lookup table which references all the possible transaction types, meaning duplicates are redundant
 );
@@ -65,7 +65,7 @@ create table employee (
     foreign key (branchid) references branch(branchid)
 );
 
-create table bankTransaction (
+create table banktransaction (
   transactionid int primary key,
   accountid int not null,
   typeid int not null,
@@ -114,4 +114,3 @@ create index index_banktransaction_typeid
 -- helps when finding all the customers linked to a branch
 create index index_customerbranch_branchid
   on customerbranch(branchid);
-
